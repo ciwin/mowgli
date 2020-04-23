@@ -24,7 +24,7 @@ _VECTORIZER_LOCK = threading.RLock()
 
 def _load_classification_model():
     LOG.info('Start loading classification model')
-    model_path = 'resources/models/classification_model.h5'
+    model_path = '../resources/models/classification_model.h5'
     loaded_classification_model = tf.keras.models.load_model(model_path)
     LOG.info('Done loading classification model')
     return loaded_classification_model
@@ -32,7 +32,7 @@ def _load_classification_model():
 
 def _load_vectorizer():
     LOG.info('Start loading vectorizer model')
-    vectorizer = pickle.load(open('resources/models/word_vectorizer.pickle', 'rb'))
+    vectorizer = pickle.load(open('../resources/models/word_vectorizer.pickle', 'rb'))
     LOG.info('Done loading vectorizer model')
     return vectorizer
 

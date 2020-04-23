@@ -238,7 +238,7 @@ def save_evaluation_results(
         classification_report_data,
         labels
 ):
-    base_path = 'resources/evaluation/'
+    base_path = '../resources/evaluation/'
     with open(os.path.realpath(base_path + 'metrics.json'), 'w') as metrics_file:
         formatted_metrics = {k: float(v) for k, v in model_metrics.items()}
         metrics_file.write(json.dumps(formatted_metrics))

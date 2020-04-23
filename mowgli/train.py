@@ -2,17 +2,17 @@
 import logging
 import pickle
 
-from mowgli import datasets, models
+import datasets, models
 
 LOG = logging.getLogger(__name__)
 
 
 def run():
     LOG.info('Start loading datasets')
-    labels = datasets.labels('resources/labels.csv')
+    labels = datasets.labels('../resources/labels.csv')
     labels_count = len(labels)
-    train_dataset = datasets.load_dataset('resources/train.csv', labels_count)
-    test_dataset = datasets.load_dataset('resources/test.csv', labels_count)
+    train_dataset = datasets.load_dataset('../resources/train.csv', labels_count)
+    test_dataset = datasets.load_dataset('../resources/test.csv', labels_count)
     LOG.info('Done loading datasets')
 
     vocabulary_size = 500
@@ -60,8 +60,8 @@ def run():
     LOG.info('Done evaluating model')
 
     LOG.info('Start persisting model')
-    classification_model.save('resources/models/classification_model.h5')
-    pickle.dump(vectorizer, open('resources/models/word_vectorizer.pickle', 'wb'))
+    classification_model.save('../resources/models/classification_model.h5')
+    pickle.dump(vectorizer, open('../resources/models/word_vectorizer.pickle', 'wb'))
     LOG.info('Done persisting model')
 
 
